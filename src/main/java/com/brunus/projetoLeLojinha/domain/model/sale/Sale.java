@@ -8,6 +8,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.util.Date;
+import java.util.UUID;
 
 @Table(name="sale")
 @Entity
@@ -20,7 +21,7 @@ public class Sale {
 
     @Id
     @GeneratedValue
-    private String saleId;
+    private UUID saleId;
 
     private Date saleDate;
 
