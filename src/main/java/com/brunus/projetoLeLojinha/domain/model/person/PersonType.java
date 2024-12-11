@@ -16,11 +16,19 @@ import lombok.Setter;
 @NoArgsConstructor
 @AllArgsConstructor
 
-public class PersonType {
+public class PersonType{
 
     @Id
     @GeneratedValue
-    private Integer id;
+    private int id;
 
     private String description;
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
 }
