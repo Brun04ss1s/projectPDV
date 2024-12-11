@@ -20,7 +20,7 @@ public class Person {
 
     @Id
     @GeneratedValue
-    private Integer personId;
+    private Long personId;
 
     private String name;
     private String cpf;
