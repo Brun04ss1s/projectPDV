@@ -1,9 +1,6 @@
 package com.brunus.projetoLeLojinha.domain.model.product;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.OneToOne;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -19,6 +16,10 @@ import java.util.Date;
 @NoArgsConstructor
 
 public class Stock {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
 
     private Date lastUpdate;
     private Integer quantity;
