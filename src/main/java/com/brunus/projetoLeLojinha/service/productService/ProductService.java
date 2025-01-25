@@ -8,6 +8,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
+import java.util.List;
+import java.util.Optional;
+import java.util.UUID;
 
 @Service
 
@@ -39,5 +42,33 @@ public class ProductService {
         return repository.save(product);
     }
 
+    public Optional<Product> getdById(UUID id){
+        return repository.findById(id);
+    }
 
+    public List<Product> getAll(){
+        return repository.findAll();
+    }
+
+    public Optional<Product> updateProduct(UUID id, ProductRequestDTO actualizedProduct){
+        return repository.findById(id).map(product ->  {
+
+            LocalDateTime date = LocalDateTime.now();
+
+            product.setPrice(actualizedProduct.price());
+            product.setLastUpdate(date);
+
+            return repository.save(product);
+        });
+    }
+
+    public boolean deleteProduct(UUID id){
+
+        if(repository.existsById(id)){
+            repository.deleteById(id);
+            return true;
+        }
+
+        return false;
+    }
 }
